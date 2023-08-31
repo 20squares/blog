@@ -87,7 +87,7 @@ In other words, a searcher with sufficiently deep pockets can invest in staking 
 
 But if so, does PBS really prevent centralization? As things stand now we're a bit skeptical about that. Given how much technological advantage matters in this space, we would not expect a state of monopoly to hold for long (a better searcher may always enter the market and steal the crown). Yet, 
 
-> We deem it likely to see the market stabilizing into a sort of 'succession of dynasties' ecosystem where a very small number of integrated players reigns sovereing (old dynasty) for months/years until some more technological advanced player trumps the game (change of dynasty). 
+> We deem it likely to see the market stabilizing into a sort of 'succession of dynasties' ecosystem where a very small number of integrated players reign sovereing (old dynasty) for months/years until some more technological advanced player trumps the game (change of dynasty). 
 
 Looking at things from this point of view, integrated **searcher-builder-proposers** really seem inevitable: in securing part of the proposer market a searcher can distort the fierce competition on state-of-the-art search. Maybe this strategy works only for a while but extending one's reign even for a while can be very lucrative.
 
