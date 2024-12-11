@@ -43,6 +43,7 @@ This integration streamlines the process, allowing developers to focus on design
 
 
 ### 💡 A Leading Example: Dual Governance Project
+
 To illustrate the power of this integration, we’ll use the **[Dual Governance Project](https://github.com/example/dual-governance-project)** as a running example throughout this post.
 
 This mechanism, intended as a complement to the Lido protocol as a safety module for (w)stETH holders, relies on a series of smart contracts. In the project we did analyze game theoretic properties of this mechanism. To that end we had to implement the whole mechanism, in particular its state machine. This requires a lot of manual work. The state machine alone are around XXX lines of code.
@@ -53,4 +54,10 @@ Now, in the dual governance project as well as in others there is sometimes a go
 
 Still, in principle, with the integration available, one can in principle also combine the two approaches: One can construct tests where model based implementation are compared with the implementation based analysis. In so far as there arise differences, one can then investigate the reasons for this. This equips the analyses with a very high degree of assurance.
 
-k
+## Intro HEVM
+
+## Intro Open Games
+
+## Simple example using HEVM and Open Games
+
+## Lido example
