@@ -266,7 +266,7 @@ considered here, but please, prove us wrong!
 
 Flows obey inequalities, usually as a fraction of the source, except
 for $r,b$. We convert these inequalities; for each uppercase
-*extensive* flow $$(J,F,B,\ldots)$$ we define a lowercase *intensive
+*extensive* flow $$(J,F,B,\ldots)$$ we define a lowercase *intensive* 
 variable[^intensive] $$(\jmath,f,b,\ldots)$$ with \[units\]: the
 fractions \[1\] and fractional rates \[1/yr\].  In forming these, the
 ideal is to apply the tightest available bounds that still capture the
