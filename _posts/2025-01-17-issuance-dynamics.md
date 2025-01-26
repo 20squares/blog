@@ -438,7 +438,8 @@ Conceptually, how can inflation *moderate* staking fraction, though? Shouldn't m
 
 Novel investment in staking $$Q_+$$ is driven largely by speculation, and new users encountering Ethereum. $$Q_+$$ acts to increase staking fraction, as seen above, and indeed the glut in $$Q_+$$ since the Merge may have been the source for much of the alarm that prompted this study. Novel speculative investment must eventually dry up, and be replaced by long-term investment $$R$$, because
 
-1. everyone with money who wants to stake eventually will, so will be counted in $$R$$ not $$Q_+$$ 2. any business that wants to stay in business cannot consistently reinvest more than its revenue $$R\leq I+P$$ (issuance plus priority fees).
+1. everyone with money who wants to stake eventually will, so will be counted in $$R$$ not $$Q_+$$
+2. any business that wants to stay in business cannot consistently reinvest more than its revenue $$R\leq I+P$$ (issuance plus priority fees).
 
 Of the long term signal $$R$$, only the issuance portion of reinvestment, that is the part that contributes to inflation, can moderate $$s$$, which brings us to the quotient rule.
 
