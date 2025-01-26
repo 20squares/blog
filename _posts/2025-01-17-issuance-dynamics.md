@@ -425,11 +425,14 @@ That's quite a lot of ifs, but consider exponential growth of supply under prese
 
 We saw above a few things:
 
-1. Reinvestment $$r$$ is a lower-bound for the staking fraction fixed point $$s^\star$$ unless Ether is deflating, when likely $s\to1$ or the dynamics are unstable. 1. Low (but positive) inflation moderates staking fraction closer to this lower bound at intermediate timescales 1. Positive inflation cannot maintain indefinitely, so eventually $$s^\star\to1$$.
+1. Reinvestment $$r$$ is a lower-bound for the staking fraction fixed point $$s^\star$$ unless Ether is deflating, when likely $s\to1$ or the dynamics are unstable.
+2. Low (but positive) inflation moderates staking fraction closer to this lower bound at intermediate timescales
+3. Positive inflation cannot maintain indefinitely, so eventually $$s^\star\to1$$.
 
 Conceptually, how can inflation *moderate* staking fraction, though? Shouldn't more staking lead to more issuance, which leads to more inflation, etc.? Briefly the reasons are:
 
-* Short $$Q_+$$ vs. Long Term $$R$$ Investment * The Quotient Rule $$\dot{S}=\dot{S}/A-s\dot{A}/A$$
+* Short $$Q_+$$ vs. Long Term $$R$$ Investment
+* The Quotient Rule $$\dot{S}=\dot{S}/A-s\dot{A}/A$$
 
 ## Short Term vs. Long Term.
 
