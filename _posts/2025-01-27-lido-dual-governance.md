@@ -381,18 +381,55 @@ prop_ModelHeterogenousGameNegativeForStakersEq2 payoffLDO payoffStETHHolders =
   where params = (modelHeterogenousGameParametersTestProposal payoffLDO payoffStETHHolders)
 ```
 
-In these two cases, we consider stakers to be symmetric - affected in the same way and also being perfectly informed about how they are affected and in addition having common knowledge about this fact. In the first game, both stakers share the burden of sending sufficient tokens. In the second case, only one staker stakes - the other stakes nothing. Two things are important: Without the actual threat of an execution of the proposal no agent will stake. Second, there is a coordination issue: Agent Bob would actually prefer if Alice were to stake and to prevent the execution of the proposal. 
+In these two cases, we consider stakers to be symmetric - affected in the same way and also being perfectly informed about how they are affected and in addition having common knowledge about this fact. In the first game, both stakers share the burden of sending sufficient tokens. In the second case, only one staker stakes - the other stakes nothing. Two things are important: Without the actual threat of an execution of the proposal no agent will stake. Second, there is a coordination issue: Agent Bob would actually prefer if Alice were to stake and to prevent the execution of the proposal.
 
 In traditional game theoretic fashion, we are imposing the strategies and show that they are in equilibrium if agents know these strategies are played. In practice though this poses a significant challenge as it is absolutely not obvious how to coordinate. The code-base considers various extensions of this.
 
-Instead of going through this, we want to illustrate another point. So far we assumed that agents are perfectly informed. Now, we consider asymmetric information. The code-base contains various models, here we will focus just on one setting:  Let us illustrate the latter point with an extension. 
+Instead of going through this, we want to illustrate another point. So far we assumed that agents are perfectly informed. Now, we consider asymmetric information. The code-base contains various models, here we will focus just on one setting:  Let us illustrate the latter point with an extension.
 
+```haskell
+-- In this game, both players receive totally informative signals; and share the burden
+prop_ModelLeaderFollowerEndogenousSignalGameNegativeForStakersEq payoffLDO payoffStETHHolders =
+  payoffLDO > 0 && payoffStETHHolders < 0 ==>
+  eqEquilibriumModelLeaderFollowerEndogenousSignalGame params (modelLeaderFollowerEndogenousSignalProposeExecuteOptimalMinStakingStrategy stakerMovesSmall params) 1 1 === True
+  where params = (modelBayesianGameParametersTestProposal payoffLDO payoffStETHHolders)
 
+-- In this game, both players receive total noise; so ignore the signal
+prop_ModelLeaderFollowerEndogenousSignalGameNegativeForStakersEq2 payoffLDO payoffStETHHolders =
+  payoffLDO > 0 && payoffStETHHolders < 0 ==>
+  eqEquilibriumModelLeaderFollowerEndogenousSignalGame params (modelLeaderFollowerEndogenousSignalProposeExecuteIgnoreSignalStrategy stakerMovesSmall params) 0 0  === True
+  where params = (modelBayesianGameParametersTestProposal payoffLDO payoffStETHHolders)
 
+-- In this game, player1 receives perfect signal; second player follows player1
+prop_ModelLeaderFollowerEndogenousSignalGameNegativeForStakersEq3 payoffLDO payoffStETHHolders =
+  payoffLDO > 0 && payoffStETHHolders < 0 ==>
+  eqEquilibriumModelLeaderFollowerEndogenousSignalGame params (modelLeaderFollowerEndogenousSignalProposeExecuteFollowFirstActionStrategy stakerMovesSmall params) 1 0  === True
+  where params = (modelBayesianGameParametersTestProposal payoffLDO payoffStETHHolders)
+```
 
+In these scenarios, players are uncertain about the effect of a proposal. They do receive a private signal about how they are affected though. In the first game, both players are perfectly informed about actual consequences; in the second game both players receive totally uninformative signals; and in the second game the first player is perfectly informed and the second player is totally uninformed - he does observe the action of the first player though.
 
+In the first case, sharing the burden is an option as before. In the second case, when being totally uninformed players have to rely on their priors. In this case, it depends on the subjective believes. If player deem the threat to their assets sufficiently high, they will leave the system. If they don't, they will stay in the system. Lastly, in the third case, additional dynamics can follow. If the first player stakes, the second player can take this as a signal about the proposal being detrimental and follow him. Under certain conditions the first player - anticipating the second player's moves - can exploit this by staking a sufficiently high amount that the second player then adds on.
 
+Overall, what this analysis reveals about the functioning of the mechanism is that it works well when token holders believe a proposal is harmful, expect others to react similarly, and trust that the system will function reliably. However, challenges like free-riding and hidden information can reduce its effectiveness.
 
+It is effective against clearly harmful proposals but may struggle when proposals are ambiguous. Moreover, its success depends on the overall health of the system: the DAO must effectively introduce, evaluate, and share proposal information, and token holders must be able to transfer tokens into the contract. If too many people try to do this at once, high costs could weaken the mechanism precisely when it is most needed.
+
+In the analysis above, we showed We illustrated the modularity of our approach. A key feature of out tooling, namely model==code, also means that the analysis we have done can evolve. Extending the code, changing parameters etc. can easily be done. This is much more inline with the target of the analysis compared to more traditional analysis, where one does some game theory analysis with pen and paper. After all the mechanism exists in a dynamically evolving context. The code base can therefore evolve with the underlying system.
+
+Moreover, in our report we have pointed out several directions in which the analysis should be extended. This concerns the spread of information, the costs of an attack, an the testing of the escape route under duress.
+
+The advantage of having the model being represented as a code-base is that these analyses could be "docked" onto the existing game theoretic model. This could allow to provide more precise estimates on the specific parameters.
+
+## Spec or contracts?
+
+We want to close this post on a conceptual note. The model we have constructed is based on the spec. This is intentional. After all the mechanism should follow its own economic principle and should be evaluated accordingly.
+
+At the same time, eventually the mechanism will come to life through the contracts that implement him. And obviously, the actual implementation might differ from the spec. This is of course a general problem.
+
+But it is easy to see that it would be quite useful to have ways to build the model on the basis of the actual contracts. In principle, one could go as far as developing both models - one based on spec and one on the contracts - in parallel and then tests their behavior against each other. Short of that there is of course an other advantage of having the capability of importing the contracts and build a model on top: One could save time and work. In the model above, we had to build up quite some machinery to just mirror the state machine.
+
+In fact, together with the (former) Formal Verification Group of the Ethereum Foundation and also funded by the Ethereum Foundation, we have developed exactly this capability. What it allows to do is to import contracts (solidity or bytecode) and integrate them into a game. We will introduce this capability in a future blog post and show how it could have been used in this project.
 
 
 
