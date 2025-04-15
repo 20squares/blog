@@ -18,13 +18,13 @@ Lido’s governance structure has long been built on a multi-layered approach:
 **Enter the Dual Governance Mechanism:**
 This new iteration gives stakers a direct role in protocol governance by allowing them to block DAO decisions and act as a negotiation channel between stakers and the DAO. It’s designed to safeguard (w)stETH holders from harmful proposals while maintaining the integrity of the protocol.
 
-We were tasked with analyzing the proper working of the mechanism. Which to a large degree means to check the incentives of the different stakeholders involved.
+We were tasked with analyzing the proper working of the mechanism. This to a large degree means checking the incentives of the different stakeholders involved.
 
 For the game theoretic analysis we have used our own tooling - compositional game theory. Compositional game theory is both a formal language as well as a programming language implemented in our own [stack](https://github.com/CyberCat-Institute/open-game-engine).
 
 In the following, we will illustrate the usage of the tool for analyzing the mechanism. And what can be learned from this analysis. We will only highlight one aspect - the subtle role of coordination. The whole report and further analyses can be found [here](https://github.com/20squares/dual-governance-public).
 
-While it is possible to skim along and understand the gist of the model, if you want to understand the details of the model code, we assume a basic understanding of our tooling. We have two previous posts detailing it: [A software engine for game theoretic modelling](https://statebox.org/blog/compositional-game-engine/) and [A software engine for game theoretic modelling part 2](https://cybercat.institute/2022/06/24/a-software-engine-for-game-theoretic-modelling-part-2/). These post contain further pointers to background material.
+While it is possible to skim along and understand the gist of the model, if you want to understand the details of the model code, we assume a basic understanding of our tooling. We have two previous posts detailing it: [A software engine for game theoretic modelling](https://statebox.org/blog/compositional-game-engine/) and [A software engine for game theoretic modelling part 2](https://cybercat.institute/2022/06/24/a-software-engine-for-game-theoretic-modelling-part-2/). These posts contain further pointers to background material.
 
 Before we dive into the details of our analysis, it’s important to highlight an essential aspect of our modeling approach. Our model is constructed directly from the protocol specification rather than the deployed contracts. This intentional choice ensures that the mechanism adheres to its intended economic principles while also opening up a valuable opportunity: integrating the actual contract code into the model. Such an integration would allow us to run the model in parallel with the live codebase, ensuring consistency between design and implementation without rewriting the model. We will come back this as aspect at the very end.
 
@@ -39,19 +39,19 @@ The main idea of this contract is that (w)stETH holders can:
 
 The core of the mechanism is a state machine where the protocol transitions between different operational states. Initially, proposals progress in a normal state, but when veto-signaling is triggered, the mechanism shifts into a paused state for further evaluation.
 
-Veto-Signaling serves as an early-warning system that allows stakers to express their concerns about a proposal. When a proposal is introduced that raises red flags, stakers can trigger veto-signaling by sending their (w)stETH into the Dual Governance Mechanism's contract, which temporarily halts the proposal’s progress. This pause gives stakeholders the time needed to assess the proposal and coordinate an appropriate response. If, upon further review, the proposal is deemed too harmful by sufficiently many stakers, the system can escalate the issue. On the other hand, if the concerns are mitigated, the process can resume as normal.
+Veto-Signaling serves as an early-warning system that allows stakers to express their concerns about a proposal. When a proposal is introduced that raises red flags, stakers can trigger veto-signaling by sending their (w)stETH into the Dual Governance Mechanism's contract, which temporarily halts the proposal’s progress. This pause gives stakeholders the time needed to assess the proposal and coordinate an appropriate response. If upon further review, the proposal is deemed too harmful by sufficiently many stakers, the system can escalate the issue. On the other hand, if the concerns are mitigated, the process can resume as normal.
 
-If the situation escalates, the state may move to a rage-quit state, reflecting a more significant collective dissent among stakers. The rage-quit stage provides stakers with an exit option. If this this state is triggered,  (w)stETH in the contract will be put under an  escrow where the tokens will be exchanged against ETH over time. By exiting, stakers not only protect their own assets but also exert pressure on the DAO to reconsider or modify proposals that could be detrimental to the protocol.
+If the situation escalates, the state may move to a rage-quit state, reflecting a more significant collective dissent among stakers. The rage-quit stage provides stakers with an exit option. If this state is triggered, (w)stETH in the contract will be put under an  escrow where the tokens will be exchanged against ETH over time. By exiting, stakers not only protect their own assets but also exert pressure on the DAO to reconsider or modify proposals that could be detrimental to the protocol.
 
 The key parameter for the mechanism is `RageQuit`  support ($R$) which measure the ratio between the value of (w)stETH sent into the Dual Governance Mechanism and the tokens overall in circulation. It can be seen as a measure of discontent with proposals. This parameter is used to determine when a state transition from the normal functioning of DAO happens. One key threshold is the `FirstSealRageQuitSupport` which once crossed triggers the `VetoSignalling` state and `SecondSealRageQuitSupport` once crossed triggers the (final) `RageQuit` stage.
 
-The state machine provides additional states that regulate the de-escalation. Also the state transitions depend on more parameters and has time requirements. The mechanism must spend a certain amount of time a state before a transition can happen (e.g. from `VetoSignalling` to `RageQuit`). We will ignore all of this to keep things simple.
+The state machine provides additional states that regulate the de-escalation. Also the state transitions depend on more parameters and has time requirements. The mechanism must spend a certain amount of time in a state before a transition can happen (e.g. from `VetoSignalling` to `RageQuit`). We will ignore all of this to keep things simple.
 
 ## A game theoretic model - overview
 
 The key question we want to tackle here is: Under which conditions does the mechanism work as expected? We will focus on one specific aspect, namely do stakers have appropriate incentives to stake into the escrow when they are possibly negatively affected by a proposal? We will answer this question with a series of simple models.
 
-The essence of Compositional Game Theory is that models are built in a compositional manner by plugging things together. And as in our case model==code, "things" is code. In the following we first give a high level overview of the model, i.e. code-base.
+The essence of Compositional Game Theory is that models are built in a compositional manner by plugging things together. And as in our case model==code, "things" is code. In the following, we first give a high level overview of the model, i.e. code-base.
 
 At the core, the repository contains a comprehensive game theoretic model that simulates the interactions within the dual governance mechanism. 
 
@@ -416,7 +416,7 @@ prop_ModelLeaderFollowerEndogenousSignalGameNegativeForStakersEq3 payoffLDO payo
   where params = (modelBayesianGameParametersTestProposal payoffLDO payoffStETHHolders)
 ```
 
-In these scenarios, players are uncertain about the effect of a proposal. They do receive a private signal about how they are affected though. In the first game, both players are perfectly informed about actual consequences; in the second game both players receive totally uninformative signals; and in the second game the first player is perfectly informed and the second player is totally uninformed - he does observe the action of the first player though (and might infer something from his actions).
+In these scenarios, players are uncertain about the effect of a proposal. However, they do receive a private signal about how they are affected. In the first game, both players are perfectly informed about actual consequences; in the second game both players receive totally uninformative signals; and in the second game the first player is perfectly informed and the second player is totally uninformed - he does observe the action of the first player though (and might infer something from his actions).
 
 In the first case, sharing the burden is an option as before. In the second case, when being totally uninformed, players have to rely on their priors. In this case, it depends on the subjective believes. If player deem the threat to their assets sufficiently high, they will leave the system. If they don't, they will stay in the system. Lastly, in the third case, additional dynamics can follow. If the first player stakes, the second player can take this as a signal about the proposal being detrimental and follow him. Under certain conditions the first player - anticipating the second player's moves - can exploit this by staking a sufficiently high amount that the second player then adds on.
 
@@ -424,9 +424,9 @@ Overall, what this analysis reveals about the functioning of the mechanism is th
 
 The mechanism is effective against clearly harmful proposals but may struggle when proposals are ambiguous. Moreover, its success depends on the overall health of the system: the DAO must effectively introduce, evaluate, and share proposal information, and token holders must be able to transfer tokens into the contract. If too many people try to do this at once, high costs could weaken the mechanism precisely when it is most needed.
 
-In the analysis above, we illustrated the modularity of our approach. A key feature of our tooling, namely model==code, also means that the analysis we have done can evolve. Extending the code, changing parameters etc. can easily be done. This is much more inline with the nature of the system than a more traditional game theoretic analysis, where one does some game theory analysis with pen and paper. After all the mechanism exists in a dynamically evolving context. The code base can therefore evolve with the underlying system.
+In the analysis above, we illustrated the modularity of our approach. A key feature of our tooling, namely model==code, also means that the analysis we have done can evolve. Extending the code, changing parameters etc. can easily be done. This is much more in line with the nature of the system than a more traditional game theoretic analysis, where one does some game theory analysis with pen and paper. After all the mechanism exists in a dynamically evolving context. The code base can therefore evolve with the underlying system.
 
-Moreover, in our report we have pointed out several directions in which the analysis should be extended. This concerns the spread of information, the costs of an attack, an the testing of the escape route under duress.
+Moreover, in our report we have pointed out several directions in which the analysis should be extended. This concerns the spread of information, the costs of an attack, and the testing of the escape route under duress.
 
 The advantage of having the model being represented as a code-base is that these analyses could be "docked" onto the existing game theoretic model. This could allow to provide more precise estimates on the specific parameters.
 
