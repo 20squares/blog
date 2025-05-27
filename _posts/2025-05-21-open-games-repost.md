@@ -88,7 +88,7 @@ The syntax for programming has two parts, an _outside perspective_ and an _insid
 
 The above expression is a declaration of an open game. You can think of it as a large (possibly constant) function. That is, on the left hand side of the equation you provide the name of the game `_NameOfGame_` as well as possible arguments that the game depends on `_var1_ ,...`. Think of the arguments as exogenous parameters on which the game depends such as utility functions, cost functions, discount factors, name of players etc. 
 
-Regarding the right hand side of the equation, the `[opengame\| ... \|]` is the syntax that contains the relevant information to define an open game. The internals are seperated from the externals through two separating lines `:---:`. 
+Regarding the right hand side of the equation, the `opengame` is the syntax that contains the relevant information to define an open game. The internals are seperated from the externals through two separating lines `:---:`. 
 
 For now, we focus on the external parts. Recall the diagram above. The outside perspective corresponds to having the box with 4 wires. Hence, we need to provide inputs/outputs. In many cases this will boil down to assigning variable names to make clear on which information a game does depend on.
 
