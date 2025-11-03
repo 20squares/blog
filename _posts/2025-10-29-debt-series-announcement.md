@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Tokenizing Debt - A limited blog post series."
+title: "Tokenizing Debt - Episode I"
 author: Philipp Zahn
 categories: ["DeFi", "Tokenization", "Fintech", "Blockchain", "Asset-Backed Securities"]
-excerpt: "Exploring the economic rationale and modular design behind tokenizing real-world short-term debt, like receivables, using blockchain primitives inspired by Zero Coupon Bonds. Based on work developed for a client project."
+excerpt: "Our journey into short-term debt tokenization."
 usemathjax: false
 thanks: ""
 ---
@@ -26,20 +26,33 @@ This financing gap represents both a crisis and an opportunity. Traditional solu
 
 ## Our Entry Point
 
-How did we enter this domain? Very simple: as hired guns. Our company 20squares is involved in various things related to crypto. One core part, with which started even though we have outgrown it by now is the incentive design and market design in the context of blockchain protocols.
+How did we enter this domain? Very simple: as hired guns. One part of 20squares, that we provide as a specialized service for clients, is **incentive design and market design** in the context of blockchain protocols.
 
-As usual in this line of work, some designs get implemented, some don't, and some are still under development (like this one).[^4]
+As usual in this line of work, some designs get implemented, some don't, and some are still under development (like this one) - it's the client's call after all.[^4]
 
-To make a long story short, in 2024 we were engaged "to develop a token for invoices". The timing was perfect. Our MEV-related work provided insights into market microstructure, while the broader tokenization trend had matured sufficiently to support serious infrastructure development. What began as a straightforward invoice tokenization project quickly revealed far deeper structural issues in debt markets.
+To make a long story short, in 2024 we were engaged "to develop a token for invoices". The timing was perfect. Our MEV-related work provided insights into market microstructure, while the broader tokenization trend had matured sufficiently to support serious infrastructure development. What began as a straightforward invoice tokenization project quickly revealed far deeper structural issues in debt markets. This is the kind of stuff we like.
 
-The framework we developed for that initial client engagement, which also has specific geographic institutional context not directly available elsewhere, served primarily as an education. It showed us what wouldn't work as much as what would and where the key challenges lie. Our current work has evolved substantially beyond that original scope, addressing fundamental market failures that no simple tokenization scheme could solve.
+The framework we developed for that initial client engagement, which also has specific geographic institutional context not directly available elsewhere, served primarily as an education. It showed us what wouldn't work as much as what would and where the key challenges lie.
 
-## A Series of Posts
+Our current work has evolved substantially beyond that original scope, addressing fundamental market failures that no simple tokenization scheme could solve.
 
-In the next weeks we will be releasing a series of posts that examine a specific segment of debt tokenization: short-term B2B debt. While other forms of tokenization capture headlines, this particular market presents unique challenges and opportunities.
+## Series Structure and Scope
+
+This series documents our journey from a client's invoice tokenization request to developing our own comprehensive solution for short-term B2B debt markets. It follows both our learning process and the systematic construction of infrastructure that addresses the fundamental problems we uncovered.
+
+Due to the interdisciplinary nature of debt tokenization — spanning blockchain architecture, corporate finance, supply chain operations, and regulatory compliance and therefore crossing different, specialized domains and their communities - we believe there is value in sharing parts of the learning process.
+
+Topics include:
+- The initial tokenization framework and why it wasn't enough
+- Legal and regulatory requirements across jurisdictions
+- Information asymmetry and zero-knowledge architectures
+
+and more.
+
+
+The next post examines our starting point: the client project that revealed how tokenizing invoices, while technically straightforward, merely scratches the surface of what's actually needed to transform SME financing.
 
 ---
-
 [^1]: See [RWA.xyz](rwa.xyz) for the evolution of tokenization markets.
 
 [^2]: [FED note on private credit](https://www.federalreserve.gov/econres/notes/feds-notes/private-credit-characteristics-and-risks-20240223.html); [IMF blog post about private credit](https://www.imf.org/en/Blogs/Articles/2024/04/08/fast-growing-USD2-trillion-private-credit-market-warrants-closer-watch)
