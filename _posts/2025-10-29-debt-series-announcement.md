@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tokenizing Debt - Part I"
+title: "Part 1: Tokenizing Debt - Intro"
 author: Philipp Zahn
 categories: ["DeFi", "Tokenization", "Fintech", "Blockchain", "Asset-Backed Securities"]
 excerpt: "Our journey into short-term debt tokenization."
