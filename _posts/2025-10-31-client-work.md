@@ -80,9 +80,9 @@ Technical implementation represents the most straightforward aspect. Smart contr
 
 Except that it does not work that way. The primary challenges emerge at the intersection of on-chain and off-chain systems.
 
-Legal enforceability, privacy requirements, and regulatory compliance determine project viability. These cannot be addressed through purely technical solutions when dealing with real-world debt obligations. And it is here where composibility breaks.
+Legal enforceability, privacy requirements, and regulatory compliance determine project viability. These cannot be addressed through purely technical solutions when dealing with real-world debt obligations. And it is here where composability breaks.
 
-You want to transfer a token representing credit between A and B to C - simple. But making this a legally sound transaction that works out of the box - not so simple. Even less simple when individual credit should be aggregated and transferred further.
+Say you want to transfer a token representing credit between A and B to C - simple. But making this a legally sound transaction that works out of the box - not so simple. Even less simple when individual credit should be aggregated and transferred further.
 
 Another evergreen is information asymmetry. And it remains a fundamental challenge. Invoice sellers possess superior information about credit quality compared to buyers. While risk assessment modules provide mitigation, they cannot eliminate this structural issue (partially explaining the high rates in traditional factoring markets).
 
