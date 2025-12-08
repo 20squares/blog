@@ -78,7 +78,7 @@ The bottom line: Optimizing key decisions and understanding their impact is less
 
 ## Everything is multiplayer
 
-For a long time, airline revenue management systems have been the most sophisticated in any industry.[^4] What may sound surprising: These systems often assume a single player aka the airline in question is making decisions alone - no competitor in sight. This might be true for some routes but for many it is simply false.
+For a long time, airline revenue management systems have been the most sophisticated in any industry.[^4] What may sound surprising: These systems often assume a single player i.e. the airline in question is making decisions alone with no competitor in sight. This might be true for some routes but for many it is simply false.
 
 The same is true in  other industries that use advanced tech.[^6] Now, there are understandable reasons for this. One is very simply absence of data. When airlines first built their systems data was scarce. And data about other companies was basically non-existant.[^5]
 
