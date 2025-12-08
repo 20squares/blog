@@ -66,9 +66,7 @@ We have been active in the crypto space for years. The trend is now obvious: cry
 
 The same phenomenon is playing out with AI right now. What started as a small nucleus is now rapidly expanding, with new pathways of influence appearing every day.[^2]
 
-In these phases, being fast, adaptable, and able to bridge expertise across domains is decisive. And that is where we have an edge - more on this below.
-
-As a sidenote: When a system's causal cone is still small, there is an opportunity not just to adapt to it but to help shape it. We try to act on this where we can. Through NeverLocal, a joint venture we founded with partners from Oxford, we are working on the transition of blockchains into the post-quantum world; getting involved early, while the structure is still forming.[^3]
+In these phases, being fast, adaptable, and able to bridge expertise across domains is decisive. And that is where we have an edge - more on this below.[^3]
 
 I focused on technical openings, but the same dynamics applies to established companies on pure business grounds. There is a VC saying "Every Company Will Be a Fintech Company"[^1]. We see this happening through AI right now; it might well happen through prediction markets and many other things.
 
@@ -169,7 +167,7 @@ If you face a decision problem where your actions affect your environment, wheth
 
 [^1]: See [here](https://a16z.com/every-company-will-be-a-fintech-company/)
 [^2]: Of course times of expansion are followed by periods of consolidation. Some pathways that have already been taken strengthen, while others are abandoned.
-[^3]: My co-founder, Fabrizio is leading this effort. He has been vocal about the need for preparing since, like, yesterday, [early on](https://x.com/fabgenovese/status/1410564377489641473).
+[^3]: As a sidenote: When a system's causal cone is still small, there is an opportunity not just to adapt to it but to help shape it. We try to act on this where we can. Through [NeverLocal](https://neverlocal.com/), a joint venture we founded with partners from Oxford, we are working on the transition of blockchains into the post-quantum world; getting involved early, while the structure is still forming. My co-founder, Fabrizio is leading this effort. He has been vocal about the need for preparing since, like, yesterday, [early on](https://x.com/fabgenovese/status/1410564377489641473).
 [^4]: Besides finance, other industries relying on advanced tech are hotels and hospitality, online travel platforms, ride-hailing and mobility platforms, e-commerce.
 [^5]: We have been involved with an airline recently on a [project](https://cybercat.institute/2025/05/16/game-theory-rm/) of including strategic opponents in their systems. This airline prouds itself of being - even within their industry - at the forefront. Yet, even for them getting systematic data on their competitors is hard.
 [^6]: It is even true to some degree of financial markets where there often is no explicit modelling of "the" competitors (which in contrast to the airline industry for instance are often not knwown in advance). Instead market forces are assumed and modelled that will react to actions.
