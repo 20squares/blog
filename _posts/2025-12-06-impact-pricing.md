@@ -165,8 +165,9 @@ But in our experience it does work surprisingly often. And it is important to ke
 
 If you face a decision problem where your actions affect your environment, whether that's competitors reacting to your prices, markets moving against your trades, or users responding to your incentives, there's a good chance our framework applies. The structural pattern is the same; only the domain differs. Get in touch, and we can find out.
 
+# Notes
 
-[^1]: See https://a16z.com/every-company-will-be-a-fintech-company/
+[^1]: See [here](https://a16z.com/every-company-will-be-a-fintech-company/)
 [^2]: Of course times of expansion are followed by periods of consolidation. Some pathways that have already been taken strengthen, while others are abandoned.
 [^3]: My co-founder, Fabrizio is leading this effort. He has been vocal about the need for preparing since, like, yesterday, [early on](https://x.com/fabgenovese/status/1410564377489641473).
 [^4]: Besides finance, other industries relying on advanced tech are hotels and hospitality, online travel platforms, ride-hailing and mobility platforms, e-commerce.
