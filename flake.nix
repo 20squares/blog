@@ -9,9 +9,9 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        exists = builtins.pathExists (/. + "${currentDir}/gemset.nix");
-
+        
         currentDir = builtins.getEnv "PWD";
+        exists = builtins.pathExists (/. + "${currentDir}/gemset.nix");
         
         jekyllEnv = if exists then pkgs.bundlerEnv {
           name = "jekyll-env";
