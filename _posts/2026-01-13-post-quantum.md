@@ -3,7 +3,7 @@ layout: post
 title: "The Compliance Clock Started ... in 2024"
 excerpt: "Post-quantum cryptography is becoming a legal exposure, not just a technical curiosity"
 author: Fabrizio Genovese, Philipp Zahn
-categories: Cryptography, Compliance
+categories: ["Cryptography", "Compliance"]
 date: 2026-01-13
 usemathjax: false
 thanks: "<b>A note before we begin: This post discusses regulatory frameworks and compliance considerations, but it isn't legal advice. This is our interpretation. If you're making decisions about your organization's cryptographic posture, talk to your lawyers.</b>"
