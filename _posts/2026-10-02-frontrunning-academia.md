@@ -3,9 +3,10 @@ layout: post
 title: "Frontrunning Academia"
 excerpt: "... and every other kind of knowledge work. Credibly neutral infrastructure is needed."
 author: Philipp Zahn
-categories: ["Academia, Agents"]
+categories: [Academia, Agents, Peer-Review, De-centralized Systems]
 date: 2026-10-02
 usemathjax: false
+thanks: Many thanks to Tal Kachman for discussion on several themes discussed here and Fabrizio Genovese for comments.
 ---
 
 On 1 October 2026, arXiv [announced and introduced a limit of two submissions per submitter per calendar month](https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/), across all subject categories, while retaining its cap of three active submissions at any given time.
@@ -28,7 +29,7 @@ So are academic conferences. Consider NeurIPS, one of the major machine learning
 
 *NeurIPS main-track paper submissions, as reported by the organizers. The 2025 figure counts valid submissions. Other conference tracks are excluded. Sources and figures: [2023 fact sheet](https://media.neurips.cc/Conferences/NeurIPS2023/NeurIPS2023-Fact_Sheet.pdf), [2024 fact sheet](https://media.neurips.cc/Conferences/NeurIPS2024/NeurIPS2024-Fact_Sheet.pdf), and [2025 program chairs' report](https://blog.neurips.cc/2025/09/30/reflections-on-the-2025-review-process-from-the-program-committee-chairs/).*
 
-And keep in mind, AI can also change how the research itself gets done. See math. But also see science. Bruno and I recently discussed this with Markus Buehler on Taste-Bench. His work on agents spans the research process, including protein design with experimental validation.[^markus] If these systems allow researchers to produce more substantive work, that work will still need to be assessed. Even a world with no slop would have an allocation problem.
+And keep in mind, AI can also change how the research itself gets done. See math. But also see science. Bruno Marnette and I recently discussed this with Markus Buehler on [Taste-Bench](https://www.taste-bench.com/podcast). His work on agents spans the research process, including protein design with experimental validation.[^markus] If these systems allow researchers to produce more substantive work, that work will still need to be assessed. Even a world with no slop would have an allocation problem.
 
 This is just the beginning. Academic communities are up for a ride.
 
