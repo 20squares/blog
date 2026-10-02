@@ -2,11 +2,11 @@
 layout: post
 title: "Frontrunning Academia"
 excerpt: "... and every other kind of knowledge work. Credibly neutral infrastructure is needed."
-author: Philipp Zahn
+author: Philipp Zahn and Tal Kachman
 categories: [Academia, Agents, Peer-Review, De-centralized Systems]
 date: 2026-10-02
 usemathjax: false
-thanks: Many thanks to Tal Kachman for discussion on several themes discussed here and Fabrizio Genovese for comments.
+thanks: Many thanks to Fabrizio Genovese for comments.
 ---
 
 On 1 October 2026, arXiv [announced and introduced a limit of two submissions per submitter per calendar month](https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/), across all subject categories, while retaining its cap of three active submissions at any given time.
@@ -29,7 +29,7 @@ So are academic conferences. Consider NeurIPS, one of the major machine learning
 
 *NeurIPS main-track paper submissions, as reported by the organizers. The 2025 figure counts valid submissions. Other conference tracks are excluded. Sources and figures: [2023 fact sheet](https://media.neurips.cc/Conferences/NeurIPS2023/NeurIPS2023-Fact_Sheet.pdf), [2024 fact sheet](https://media.neurips.cc/Conferences/NeurIPS2024/NeurIPS2024-Fact_Sheet.pdf), and [2025 program chairs' report](https://blog.neurips.cc/2025/09/30/reflections-on-the-2025-review-process-from-the-program-committee-chairs/).*
 
-And keep in mind, AI can also change how the research itself gets done. See math. But also see science. Bruno Marnette and I recently discussed this with Markus Buehler on [Taste-Bench](https://www.taste-bench.com/podcast). His work on agents spans the research process, including protein design with experimental validation.[^markus] If these systems allow researchers to produce more substantive work, that work will still need to be assessed. Even a world with no slop would have an allocation problem.
+And keep in mind, AI can also change how the research itself gets done. See math. But also see science. Philipp Zahn and Bruno Marnette recently discussed this with Markus Buehler on [Taste-Bench](https://www.taste-bench.com/podcast). His work on agents spans the research process, including protein design with experimental validation.[^markus] If these systems allow researchers to produce more substantive work, that work will still need to be assessed. Even a world with no slop would have an allocation problem.
 
 This is just the beginning. Academic communities are up for a ride.
 
@@ -51,19 +51,19 @@ Let's focus on 2 and check out two comments on X regarding arXiv's announcement.
 
 Mhm, this might not be so simple after all.
 
-I am actually not concerned here with improving the arXiv proposal. I do not think a cap on papers can be the long-term answer. [Scott Kominers makes the distinction](https://x.com/skominers/status/2105792318385050095): moderator workload, reader overload, and assumptions about productivity are different problems. Better filtering can help readers. For moderation, he proposes earned trust: lighter scrutiny for authors with strong submission histories, backed by spot audits, revocable privileges, and a clear path for newcomers to earn the same trust.[^kominers]
+We are actually not concerned here with improving the arXiv proposal. We do not think a cap on papers can be the long-term answer. [Scott Kominers makes the distinction](https://x.com/skominers/status/2105792318385050095): moderator workload, reader overload, and assumptions about productivity are different problems. Better filtering can help readers. For moderation, he proposes earned trust: lighter scrutiny for authors with strong submission histories, backed by spot audits, revocable privileges, and a clear path for newcomers to earn the same trust.[^kominers]
 
-I am way more concerned with what comes next. Because designing a system in which you can slow down submissions by having restrictions on the human in the loop is one thing. Designing a system in which humans no longer set the pace of production is a very different beast. Human attention is still scarce. It just no longer does the throttling for us.
+We are way more concerned with what comes next. Because designing a system in which you can slow down submissions by having restrictions on the human in the loop is one thing. Designing a system in which humans no longer set the pace of production is a very different beast. Human attention is still scarce. It just no longer does the throttling for us.
 
-It is not without irony that we, as a company, were working a related problem in a very different domain six years ago.
+It is not without irony that 20squares was working on a related problem in a very different domain six years ago.
 
 # Once upon a time in crypto
 
 In 2020 and 2021 one topic kept coming up around Ethereum, besides Bitcoin the best known blockchain: MEV. Back then, miner extractable value. Today, the broader term is maximal extractable value.[^mev]
 
-This discussion focused on some gnarly internal problem within the blockchain. This went so far that other blockchains were quite desperately hiring us to "get MEV going".
+This discussion focused on some gnarly internal problem within the blockchain. This went so far that other blockchains were quite desperately hiring 20squares to "get MEV going".
 
-Let me explain what it is, and please bear with me.
+Let us explain what it is, and please bear with us.
 
 To get anything done on a blockchain, say Alice needs to send her USD stablecoin to Bob, this transaction needs to be recorded. What sounds simple in fact rests on a very delicate process that by now involves a whole value chain of actors. The system needs to check that a transaction follows the protocol's rules, given the state in which it executes. Does Alice have the funds? Is the signature valid? And it needs to decide how this specific transaction should be threaded into the timeline of the blockchain. That second part gets complicated.
 
@@ -73,11 +73,11 @@ So, there is a whole smorgasbord of individual transactions that are in competit
 
 Now, here is the kicker. With transactions and smart programs running and getting sequenced, the order becomes relevant. Actually, massively important.
 
-Consider the following example. Alice wants to exchange some USDC for ETH (the native Ethereum token). At that time, a natural choice was an Automated Market Maker (AMM). I spare you the details but this thing is a program that waits on input (the token to be switched and information about what should come out, here ETH). USDC goes in, ETH comes out. Like in normal marketplaces, demand and supply affect the exchange rate. So, all else equal, the next person who also wants to buy ETH with USDC in the same pool will get a worse exchange rate. And the larger the trade relative to the pool, the stronger the price movement.
+Consider the following example. Alice wants to exchange some USDC for ETH (the native Ethereum token). At that time, a natural choice was an Automated Market Maker (AMM). We'll spare you the details but this thing is a program that waits on input (the token to be switched and information about what should come out, here ETH). USDC goes in, ETH comes out. Like in normal marketplaces, demand and supply affect the exchange rate. So, all else equal, the next person who also wants to buy ETH with USDC in the same pool will get a worse exchange rate. And the larger the trade relative to the pool, the stronger the price movement.
 
 Now, suppose Bob wants the same thing, the same transaction as Alice (he talked to Alice before and like her wants to be on Ethereum - it was 2020 after all). If he comes second, he will receive a worse price, less ETH for the same amount of USDC.
 
-If the order were reversed, so Bob moving before Alice, Bob would have saved money. Now, the natural step for Bob is to ask, wait a second, if I could pay a little to be before Alice, this would make me better off.
+If the order were reversed, so Bob moving before Alice, Bob would have saved money. Now, the natural step for Bob is to ask, "Wait a second, if I could pay a little to be before Alice, this would make me better off."
 
 And this is the crux of the problem. In a chain that is constructed like Ethereum, the internal workings have to decide which transaction comes first. And the order has externalities. Also note that order mixes with temporal preferences. Charlie might have a legit concern about getting his token to David in time. So, he might be willing to pay for being before other stuff gets executed.
 
@@ -89,13 +89,13 @@ Two strategies were frontrunning, getting ahead of a target transaction, and san
 
 It goes without saying that these systems ran algorithmically. Like in other financial markets, no single human could manually keep up.
 
-I spare you the full sad story of how this market infrastructure developed then. We have [written about parts of it before]({% post_url 2023-08-26-mev-cui-bono %}). Attempts to manage extraction created new intermediaries, with their own incentives and opportunities to accumulate power. Ethereum is a cautionary tale here. The rules for processing transactions helped shape an entire market, including ways of making money at other users' expense. And each intervention changed what it paid to do next.
+We'll spare you the full sad story of how this market infrastructure developed then. 20squares has [written about parts of it before]({% post_url 2023-08-26-mev-cui-bono %}). Attempts to manage extraction created new intermediaries, with their own incentives and opportunities to accumulate power. Ethereum is a cautionary tale here. The rules for processing transactions helped shape an entire market, including ways of making money at other users' expense. And each intervention changed what it paid to do next.
 
 # Back to arXiv
 
-The parallel should be clearer now, but let me spell it out. The more production and submission are driven by AI, the more critical the details of the system become. Scientific work does not need one shared transaction history. But someone still has to decide what gets processed, what gets reviewed, and what gets put in front of readers. These are different decisions, all allocating scarce capacity.
+The parallel should be clearer now, but let us spell it out. The more production and submission are driven by AI, the more critical the details of the system become. Scientific work does not need one shared transaction history. But someone still has to decide what gets processed, what gets reviewed, and what gets put in front of readers. These are different decisions, all allocating scarce capacity.
 
-I think it is worthwhile to think through this process and how robust it will be if much of the activity comes from agents. Who gets through? Who waits? And what does it pay to do to get ahead?
+We think it is worthwhile to think through this process and how robust it will be if much of the activity comes from agents. Who gets through? Who waits? And what does it pay to do to get ahead?
 
 First, there are basic checks. Is the submission complete? Does it belong in the category? Does it meet the repository's requirements? Automation can help here. But passing these checks does not establish that a scientific claim is true. On a blockchain, validity is defined by the protocol's rules. In science, a claim can remain unsettled for years.
 
@@ -113,7 +113,7 @@ And yes, security matters for conferences and journals too. Flooding a review pi
 
 This is also where credible neutrality matters.[^neutrality] Participants need reason to believe that the shared rules are applied consistently and cannot simply be bent for whoever controls the process. Different levels of scrutiny can be justified, but the basis for them has to be defensible. That leaves plenty of room for different journals, curators, and communities to have different tastes. A neutral process does not require everyone to value the same work, or every paper to receive equal attention.
 
-Whatever the exact shape of conferences and journals will be in the future, and I am sure they will look very different than today, their value will depend on how well they assess claims and help us find work worth spending time on. The design of the process affects whether they can do either.
+Whatever the exact shape of conferences and journals will be in the future, and we are sure they will look very different than today, their value will depend on how well they assess claims and help us find work worth spending time on. The design of the process affects whether they can do either.
 
 # The ultimate resource
 
@@ -125,21 +125,21 @@ Human attention does not expand at the same pace as production. Herbert Simon ma
 
 AI can help on this side as well. It can filter, check, and summarize. But then we are back to the same questions. What does the filter select for? Who controls it? And how will people adapt once they learn what gets through? Delegating some of the work can help us use our attention better. Deciding what deserves that attention still involves judgment.[^hector]
 
-And for god's sake, no, I do not want to put things onchain.
+And for god's sake, no, we do not want to put things onchain.
 
-What I do think is that experiences from designing decentralized systems will be relevant here.[^joshua] Identity, reputation, incentives, collusion, and the tendency for power to accumulate around whoever runs the process. Crypto has given us plenty of experience with what can go wrong when these interact. As more knowledge work is produced and processed by agents, those experiences will matter well beyond crypto. We should use them while we can still shape the rules.
+What we do think is that experiences from designing decentralized systems will be relevant here.[^joshua] Identity, reputation, incentives, collusion, and the tendency for power to accumulate around whoever runs the process. Crypto has given us plenty of experience with what can go wrong when these interact. As more knowledge work is produced and processed by agents, those experiences will matter well beyond crypto. We should use them while we can still shape the rules.
 
 # Notes
 
 [^neurips]: The NeurIPS fact sheets report [12,343 main-track submissions in 2023](https://media.neurips.cc/Conferences/NeurIPS2023/NeurIPS2023-Fact_Sheet.pdf) and [15,671 in 2024](https://media.neurips.cc/Conferences/NeurIPS2024/NeurIPS2024-Fact_Sheet.pdf). The [2025 program chairs' report](https://blog.neurips.cc/2025/09/30/reflections-on-the-2025-review-process-from-the-program-committee-chairs/) gives 21,575 valid main-track submissions and discusses the resulting pressure on reviewer recruitment and decision-making. These are the three figures plotted above.
 
-[^markus]: Markus Buehler joins us in [*Creativity Across Disciplines, From Materials Science to Bach*](https://podcasts.apple.com/us/podcast/creativity-across-disciplines-from-materials-science/id6783881326?i=1000792427587), Taste-Bench episode 17 (30 September 2026). We discuss agent systems working across the research process. Among the work referenced in the episode is Fiona Y. Wang, Di Sheng Lee, David L. Kaplan, and Markus J. Buehler's [*Swarms of Large Language Model Agents for Protein Sequence Design with Experimental Validation*](https://arxiv.org/abs/2511.22311).
+[^markus]: Markus Buehler joins Philipp and Bruno in [*Creativity Across Disciplines, From Materials Science to Bach*](https://podcasts.apple.com/us/podcast/creativity-across-disciplines-from-materials-science/id6783881326?i=1000792427587), Taste-Bench episode 17 (30 September 2026). They discuss agent systems working across the research process. Among the work referenced in the episode is Fiona Y. Wang, Di Sheng Lee, David L. Kaplan, and Markus J. Buehler's [*Swarms of Large Language Model Agents for Protein Sequence Design with Experimental Validation*](https://arxiv.org/abs/2511.22311).
 
 [^kominers]: The linked thread introduces implications of Kominers's *Moderation under Inundation: A Market Design Framework*. He says the paper is not yet ready to circulate. He also discloses having been rate-limited himself; his argument is about policy design, not a personal exemption. His objective is to allocate review where its expected benefit justifies its cost. He also raises the risk that restricting valuable, prolific contributors gives them a reason to seek other platforms.
 
 [^mev]: See the Ethereum documentation on [maximal extractable value](https://ethereum.org/developers/docs/mev/) for the terminology and examples. Phil Daian and co-authors' [*Flash Boys 2.0*](https://arxiv.org/abs/1904.05234) documented automated competition for transaction ordering and its consequences for Ethereum in 2019.
 
-[^iulia]: Bruno Marnette and I discuss editorial judgment with Iulia Georgescu, who spent over a decade at the Nature journals and founded *Nature Reviews Physics*, in [*Taste is how we spot breakthroughs*](https://www.youtube.com/watch?v=Cwsvqplv_tY), Taste-Bench episode 15 (16 September 2026). Her account of selecting papers illustrates why deciding what deserves attention involves judgment under uncertainty. See also the [episode transcript](https://www.taste-bench.com/podcast/transcripts/15-iulia-georgescu).
+[^iulia]: Philipp and Bruno discuss editorial judgment with Iulia Georgescu, who spent over a decade at the Nature journals and founded *Nature Reviews Physics*, in [*Taste is how we spot breakthroughs*](https://www.youtube.com/watch?v=Cwsvqplv_tY), Taste-Bench episode 15 (16 September 2026). Her account of selecting papers illustrates why deciding what deserves attention involves judgment under uncertainty. See also the [episode transcript](https://www.taste-bench.com/podcast/transcripts/15-iulia-georgescu).
 
 [^sybil]: John R. Douceur's [*The Sybil Attack*](https://www.microsoft.com/en-us/research/publication/the-sybil-attack/) (2002) examines what happens when one actor can present multiple identities in a distributed system.
 
@@ -149,6 +149,6 @@ What I do think is that experiences from designing decentralized systems will be
 
 [^simon]: Herbert A. Simon, [*Designing Organizations for an Information-Rich World*](https://gwern.net/doc/design/1971-simon.pdf), in Martin Greenberger (ed.), *Computers, Communication, and the Public Interest* (1971), pp. 40–41. Simon connects the abundance of information to the need to allocate the attention of its recipients.
 
-[^hector]: In [*Defending our cognitive sovereignty*](https://www.youtube.com/watch?v=xICLSU74iJc), we discuss with Héctor Pérez Urbina the distinction between useful cognitive offloading and surrendering our own judgment. See the [Taste-Bench episode transcript](https://www.taste-bench.com/podcast/transcripts/7-hector-perez-urbina).
+[^hector]: In [*Defending our cognitive sovereignty*](https://www.youtube.com/watch?v=xICLSU74iJc), Philipp and Bruno discuss with Héctor Pérez Urbina the distinction between useful cognitive offloading and surrendering our own judgment. See the [Taste-Bench episode transcript](https://www.taste-bench.com/podcast/transcripts/7-hector-perez-urbina).
 
-[^joshua]: In [*AI sovereignty is not enough*](https://www.youtube.com/watch?v=uMcknBNTz2s), we discuss with Joshua Tan what experiences from crypto governance may transfer to AI, including the concentration of power around the systems we rely on. See the [Taste-Bench episode transcript](https://www.taste-bench.com/podcast/transcripts/2-joshua-tan).
+[^joshua]: In [*AI sovereignty is not enough*](https://www.youtube.com/watch?v=uMcknBNTz2s), Philipp and Bruno discuss with Joshua Tan what experiences from crypto governance may transfer to AI, including the concentration of power around the systems we rely on. See the [Taste-Bench episode transcript](https://www.taste-bench.com/podcast/transcripts/2-joshua-tan).
