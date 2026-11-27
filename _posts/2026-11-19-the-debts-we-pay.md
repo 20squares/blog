@@ -87,7 +87,7 @@ Expect this to spread.
 
 Anything we said so far applies to knowledge work broadly. Academia and software systems are two domains where this is already visible because the current technology bears on both directly. But many other institutional arrangements will come under the same stress.
 
-Finding problems cheaply does not make resolving them cheap. Even a flawed audit creates work: Someone has to establish what holds up. And a valid finding cannot be dismissed just because AI produced it, as curl maintainer Daniel Stenberg [argues from experience](https://daniel.haxx.se/blog/2026/10/22/ignore-the-slop/).
+Finding problems cheaply does not make resolving them cheap. Even a flawed audit creates work: Someone has to establish what holds up. And a valid finding cannot be dismissed just because AI produced it, as `curl` maintainer Daniel Stenberg [argues from experience](https://daniel.haxx.se/blog/2026/10/22/ignore-the-slop/).
 
 We will need new systems and new norms that support individuals and organizations in assessing these findings and deciding what follows from them.
 
@@ -95,7 +95,7 @@ And I think this is the real message behind the current wave of AI. All the deba
 
 Computers and digitalization have made it cheap to produce, distribute, and build on information. Our capacity to check the claims and dependencies we rely on has not kept pace. AI itself is an extreme example: We understand how these models are built and trained, but cannot fully explain their learned behavior or reliably anticipate where it will fail.
 
-The organizations and the institutions we have built have not adapted to the new information age reality. Like roadrunner, they have kept on going for a while now with the hope that as long as they keep running and do not look down, they keep running.
+The organizations and the institutions we have built have not adapted to the new information age reality. Like Wile E. Coyote, they have kept on going for a while now with the hope that as long as they keep running and do not look down, they keep running.
 
 But AI forces us to look down, everyone. It lays bare the problems that were there before. For that, it is just a messenger.
 
