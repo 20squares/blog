@@ -63,7 +63,7 @@ In short, it was basically impossible to get a full systematic grip on the "lite
 
 # What is next? Harvest now \- exploit now\!
 
-In principle, the innovation coming through AI is an opportunity to make things fundamentally better. And we see things of this already happening: Testing and formal verification in software, which both were treated as ugly ducklings,  having their time in the sun now. (ADD Details, Harmonic Antithesis, point to Taste-Bench podcast on the latter.)
+In principle, the innovation coming through AI is an opportunity to make things fundamentally better. And we see things of this already happening: Testing and formal verification in software, which both were treated as ugly ducklings,  having their time in the sun now.[^testing]
 
 But the same tools that help us repair old weaknesses also make them easier for adversaries to find. We will be entering a wild period. The most pressing threat is the danger of basic (software) infrastructure being brought down. Our dependence on these systems is vast.
 
@@ -109,3 +109,4 @@ But AI forces us to look down, everyone. It lays bare the problems that were the
 
 [^3]: See the [University of Bayreuth's documentation of the Guttenberg case](https://www.presse.uni-bayreuth.de/de/archiv/guttenberg/index.html) and [VroniPlag's description of its collaborative work](https://vroniplag.fandom.com/de/wiki/Home). VroniPlag describes itself as a scientific project without political or commercial interests; political consequences alone do not establish political motives.
 
+[^testing]: For a discussion about the changing status of testing see  [this interview Bruno and I did](https://youtu.be/VJGTCIxeuP0?si=30DQYwb91f2-GqeE) with Will Wilson from Antithesis.
